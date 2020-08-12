@@ -10,9 +10,9 @@ $ruta = "sin-categoria";
 
 $banner = ControladorProductos::ctrMostrarBanner($ruta);
 
-$titulo1 = json_decode($banner["titulo1"],true);
-$titulo2 = json_decode($banner["titulo2"],true);
-$titulo3 = json_decode($banner["titulo3"],true);
+// $titulo1 = json_decode($banner["titulo1"],true);
+// $titulo2 = json_decode($banner["titulo2"],true);
+// $titulo3 = json_decode($banner["titulo3"],true);
 
 if($banner != null){
 
