@@ -1,6 +1,6 @@
 <?php
 
-$servidor = Ruta::ctrRutaServidor();
+//$servidor = Ruta::ctrRutaServidor();
 $url = Ruta::ctrRuta();
 
 ?>

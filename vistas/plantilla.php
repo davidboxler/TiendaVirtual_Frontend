@@ -16,13 +16,9 @@
 
 	<?php
 
-		session_start();
-
-		$servidor = Ruta::ctrRutaServidor();
-
 		$icono = ControladorPlantilla::ctrEstiloPlantilla();
 
-		echo '<link rel="icon" href="'.$servidor.$icono["icono"].'">';
+		echo '<link rel="icon" href="http://localhost/Mibackend/'.$icono["icono"].'">';
 
 		/*=============================================
 		MANTENER LA RUTA FIJA DEL PROYECTO
@@ -32,49 +28,21 @@
 
 	?>
 
-	<!--=====================================
-	PLUGINS DE CSS
-	======================================-->
-
 	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plugins/bootstrap.min.css">
 
 	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plugins/font-awesome.min.css">
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plugins/flexslider.css">
 
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed" rel="stylesheet">
 
-	<!--=====================================
-	HOJAS DE ESTILO PERSONALIZADAS
-	======================================-->
-
 	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plantilla.css">
 
 	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/cabezote.css">
 
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/slide.css">
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/productos.css">
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/infoproducto.css">
-
-	<!--=====================================
-	PLUGINS DE JAVASCRIPT
-	======================================-->
-
 	<script src="<?php echo $url; ?>vistas/js/plugins/jquery.min.js"></script>
 
 	<script src="<?php echo $url; ?>vistas/js/plugins/bootstrap.min.js"></script>
-
-	<script src="<?php echo $url; ?>vistas/js/plugins/jquery.easing.js"></script>
-
-	<script src="<?php echo $url; ?>vistas/js/plugins/jquery.scrollUp.js"></script>
-
-	<script src="<?php echo $url; ?>vistas/js/plugins/jquery.flexslider.js"></script>
-
-	
 
 </head>
 
@@ -86,7 +54,7 @@
 CABEZOTE
 =============================================*/
 
-include "modulos/cabezote.php";
+include "modulos/head.php";
 
 /*=============================================
 CONTENIDO DINÁMICO
@@ -94,7 +62,6 @@ CONTENIDO DINÁMICO
 
 $rutas = array();
 $ruta = null;
-$infoProducto = null;
 
 if(isset($_GET["ruta"])){
 
@@ -132,32 +99,12 @@ if(isset($_GET["ruta"])){
 	}
 
 	/*=============================================
-	URL'S AMIGABLES DE PRODUCTOS
-	=============================================*/
-
-	$rutaProductos = ControladorProductos::ctrMostrarInfoProducto($item, $valor);
-	
-	if($rutas[0] == $rutaProductos["ruta"]){
-
-		$infoProducto = $rutas[0];
-
-	}
-
-	/*=============================================
 	LISTA BLANCA DE URL'S AMIGABLES
 	=============================================*/
 
-	if($ruta != null || $rutas[0] == "articulos-gratis" || $rutas[0] == "lo-mas-vendido" || $rutas[0] == "lo-mas-visto"){
+	if($ruta != null){
 
 		include "modulos/productos.php";
-
-	}else if($infoProducto != null){
-
-		include "modulos/infoproducto.php";
-
-	}else if($rutas[0] == "buscador"){
-
-		include "modulos/buscador.php";
 
 	}else{
 
@@ -165,21 +112,9 @@ if(isset($_GET["ruta"])){
 
 	}
 
-}else{
-
-	include "modulos/slide.php";
-
-	include "modulos/destacados.php";
-
 }
 
 ?>
-
-
-<input type="hidden" value="<?php echo $url; ?>" id="rutaOculta">
-<!--=====================================
-JAVASCRIPT PERSONALIZADO
-======================================-->
 
 <script src="<?php echo $url; ?>vistas/js/head.js"></script>
 <script src="<?php echo $url; ?>vistas/js/plantilla.js"></script>
