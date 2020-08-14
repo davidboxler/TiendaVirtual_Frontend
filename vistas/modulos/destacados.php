@@ -11,22 +11,11 @@ $ruta = "sin-categoria";
 $banner = ControladorProductos::ctrMostrarBanner($ruta);
 
 
-$titulosModulos = array("ARTÍCULOS GRATUITOS", "LO MÁS VENDIDO", "LO MÁS VISTO");
-$rutaModulos = array("articulos-gratis","lo-mas-vendido","lo-mas-visto");
+$titulosModulos = array("LO MÁS VENDIDO", "LO MÁS VISTO");
+$rutaModulos = array("lo-mas-vendido","lo-mas-visto");
 
 $base = 0;
 $tope = 4;
-
-if($titulosModulos[0] == "ARTÍCULOS GRATUITOS"){
-
-$ordenar = "id";
-$item = "precio";
-$valor = 0;
-$modo = "DESC";
-
-$gratis = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor, $base, $tope, $modo);
-
-}
 
 if($titulosModulos[1] == "LO MÁS VENDIDO"){
 
@@ -50,7 +39,7 @@ $vistas = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor, $ba
 
 }
 
-$modulos = array($gratis, $ventas, $vistas);
+$modulos = array($ventas, $vistas);
 
 for($i = 0; $i < count($titulosModulos); $i ++){
 
@@ -173,12 +162,6 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 
 							<div class="col-xs-6 precio">';
 
-							if($value["precio"] == 0){
-
-								echo '<h2><small>GRATIS</small></h2>';
-
-							}else{
-
 								if($value["oferta"] != 0){
 
 									echo '<h2>
@@ -198,8 +181,6 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 									echo '<h2><small>USD $'.$value["precio"].'</small></h2>';
 
 								}
-								
-							}
 											
 							echo '</div>
 
@@ -212,28 +193,6 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 										<i class="fa fa-heart" aria-hidden="true"></i>
 
 									</button>';
-
-									if($value["tipo"] == "virtual" && $value["precio"] != 0){
-
-										if($value["oferta"] != 0){
-
-											echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precioOferta"].'" tipo="'.$value["tipo"].'" peso="'.$value["peso"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
-
-											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-
-											</button>';
-
-										}else{
-
-											echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precio"].'" tipo="'.$value["tipo"].'" peso="'.$value["peso"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
-
-											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-
-											</button>';
-
-										}
-
-									}
 
 									echo '<a href="'.$value["ruta"].'" class="pixelProducto">
 									
@@ -304,12 +263,6 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 
 							<p class="text-muted">'.$value["titular"].'</p>';
 
-							if($value["precio"] == 0){
-
-								echo '<h2><small>GRATIS</small></h2>';
-
-							}else{
-
 								if($value["oferta"] != 0){
 
 									echo '<h2>
@@ -329,8 +282,6 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 									echo '<h2><small>USD $'.$value["precio"].'</small></h2>';
 
 								}
-								
-							}
 
 							echo '<div class="btn-group pull-left enlaces">
 						  	
@@ -339,28 +290,6 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 						  			<i class="fa fa-heart" aria-hidden="true"></i>
 
 						  		</button>';
-
-						  		if($value["tipo"] == "virtual" && $value["precio"] != 0){
-
-										if($value["oferta"] != 0){
-
-											echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precioOferta"].'" tipo="'.$value["tipo"].'" peso="'.$value["peso"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
-
-											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-
-											</button>';
-
-										}else{
-
-											echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precio"].'" tipo="'.$value["tipo"].'" peso="'.$value["peso"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
-
-											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-
-											</button>';
-
-										}
-
-									}
 
 						  		echo '<a href="'.$value["ruta"].'" class="pixelProducto">
 
@@ -388,7 +317,7 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 
 		</div>';
 
-}
+	}
 
 ?>
 

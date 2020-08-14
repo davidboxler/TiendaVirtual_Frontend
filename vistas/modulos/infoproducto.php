@@ -48,8 +48,6 @@ INFOPRODUCTOS
 				VISOR DE IMÁGENES
 				=============================================*/
 
-				if($infoproducto["tipo"] == "fisico"){
-
 					echo '<div class="col-md-5 col-sm-6 col-xs-12 visorImg">
 						
 							<figure class="visor">';
@@ -84,20 +82,6 @@ INFOPRODUCTOS
 
 						</div>';			
 
-				}else{
-
-					/*=============================================
-					VISOR DE VIDEO
-					=============================================*/
-
-					echo '<div class="col-sm-6 col-xs-12">
-							
-						<iframe class="videoPresentacion" src="https://www.youtube.com/embed/'.$infoproducto["multimedia"].'?rel=0&autoplay=0" width="100%" frameborder="0" allowfullscreen></iframe>
-
-					</div>';
-
-				}			
-
 			?>
 
 			<!--=====================================
@@ -106,14 +90,7 @@ INFOPRODUCTOS
 
 			<?php
 
-				if($infoproducto["tipo"] == "fisico"){
-
 					echo '<div class="col-md-7 col-sm-6 col-xs-12">';
-
-				}else{
-
-					echo '<div class="col-sm-6 col-xs-12">';
-				}
 
 			?>
 
@@ -241,13 +218,7 @@ INFOPRODUCTOS
 
 					/*=============================================
 					TITULO
-					=============================================*/	
-
-					if($infoproducto["precio"] == 0){
-
-						echo '<h2 class="text-muted">GRATIS</h2>';
-
-					}else{
+					=============================================*/
 
 						if($infoproducto["oferta"] == 0){
 
@@ -273,8 +244,6 @@ INFOPRODUCTOS
 
 						}
 
-					}
-
 					/*=============================================
 					DESCRIPCIÓN
 					=============================================*/		
@@ -296,8 +265,6 @@ INFOPRODUCTOS
 					if($infoproducto["detalles"] != null){
 
 						$detalles = json_decode($infoproducto["detalles"], true);
-
-						if($infoproducto["tipo"] == "fisico"){
 
 							if($detalles["Talla"]!=null){
 
@@ -359,33 +326,6 @@ INFOPRODUCTOS
 
 							}
 
-						}else{
-
-							echo '<div class="col-xs-12">
-
-								<li>
-									<i style="margin-right:10px" class="fa fa-play-circle"></i> '.$detalles["Clases"].'
-								</li>
-								<li>
-									<i style="margin-right:10px" class="fa fa-clock-o"></i> '.$detalles["Tiempo"].'
-								</li>
-								<li>
-									<i style="margin-right:10px" class="fa fa-check-circle"></i> '.$detalles["Nivel"].'
-								</li>
-								<li>
-									<i style="margin-right:10px" class="fa fa-info-circle"></i> '.$detalles["Acceso"].'
-								</li>
-								<li>
-									<i style="margin-right:10px" class="fa fa-desktop"></i> '.$detalles["Dispositivo"].'
-								</li>
-								<li>
-									<i style="margin-right:10px" class="fa fa-trophy"></i> '.$detalles["Certificado"].'
-								</li>
-
-							</div>';
-
-						}
-
 					}
 
 					/*=============================================
@@ -393,44 +333,6 @@ INFOPRODUCTOS
 					=============================================*/
 
 					if($infoproducto["entrega"] == 0){
-
-						if($infoproducto["precio"] == 0){
-
-							echo '<h4 class="col-md-12 col-sm-0 col-xs-0">
-
-								<hr>
-
-								<span class="label label-default" style="font-weight:100">
-
-									<i class="fa fa-clock-o" style="margin-right:5px"></i>
-									Entrega inmediata | 
-									<i class="fa fa-shopping-cart" style="margin:0px 5px"></i>
-									'.$infoproducto["ventasGratis"].' inscritos |
-									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistasGratis"].'</span> personas
-
-								</span>
-
-							</h4>
-
-							<h4 class="col-lg-0 col-md-0 col-xs-12">
-
-								<hr>
-
-								<small>
-
-									<i class="fa fa-clock-o" style="margin-right:5px"></i>
-									Entrega inmediata <br>
-									<i class="fa fa-shopping-cart" style="margin:0px 5px"></i>
-									'.$infoproducto["ventasGratis"].' inscritos <br>
-									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistasGratis"].'</span> personas
-
-								</small>
-
-							</h4>';
-
-						}else{
 
 							echo '<h4 class="col-md-12 col-sm-0 col-xs-0">
 
@@ -466,47 +368,7 @@ INFOPRODUCTOS
 
 							</h4>';
 
-						}
-
 					}else{
-
-						if($infoproducto["precio"] == 0){
-
-							echo '<h4 class="col-md-12 col-sm-0 col-xs-0">
-
-								<hr>
-
-								<span class="label label-default" style="font-weight:100">
-								
-									<i class="fa fa-clock-o" style="margin-right:5px"></i>
-									'.$infoproducto["entrega"].' días hábiles para la entrega  |
-									<i class="fa fa-shopping-cart" style="margin:0px 5px"></i>
-									'.$infoproducto["ventasGratis"].' solicitudes  |
-									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistasGratis"].'</span> personas  
-
-								</span>
-
-							</h4>
-
-							<h4 class="col-lg-0 col-md-0 col-xs-12">
-
-								<hr>
-
-								<small>
-								
-									<i class="fa fa-clock-o" style="margin-right:5px"></i>
-									'.$infoproducto["entrega"].' días hábiles para la entrega  <br>
-									<i class="fa fa-shopping-cart" style="margin:0px 5px"></i>
-									'.$infoproducto["ventasGratis"].' solicitudes  <br>
-									<i class="fa fa-eye" style="margin:0px 5px"></i>
-									Visto por <span class="vistas" tipo="'.$infoproducto["precio"].'">'.$infoproducto["vistasGratis"].' </span> personas 
-
-								</small>
-
-							</h4>';
-
-						}else{
 
 							echo '<h4 class="col-md-12 col-sm-0 col-xs-0">
 
@@ -542,8 +404,6 @@ INFOPRODUCTOS
 
 							</h4>';
 
-						}
-
 					}				
 
 				?>
@@ -558,46 +418,6 @@ INFOPRODUCTOS
 
 				<?php
 
-					if($infoproducto["precio"]==0){
-
-						echo '<div class="col-md-6 col-xs-12">';
-
-							if($infoproducto["tipo"]=="virtual"){
-						
-								echo '<button class="btn btn-default btn-block btn-lg backColor">ACCEDER AHORA</button>';
-
-							}else{
-
-								echo '<button class="btn btn-default btn-block btn-lg backColor">SOLICITAR AHORA</button>';
-
-							}
-
-							echo '</div>';
-
-					}else{
-
-						if($infoproducto["tipo"]=="virtual"){
-
-							echo '<div class="col-md-6 col-xs-12">
-							
-									<button class="btn btn-default btn-block btn-lg">
-									<small>COMPRAR AHORA</small></button>
-
-								</div>
-
-								<div class="col-md-6 col-xs-12">
-									
-									<button class="btn btn-default btn-block btn-lg backColor">
-
-									<small>ADICIONAR AL CARRITO</small> 
-
-									<i class="fa fa-shopping-cart col-md-0"></i>
-
-									</button>
-
-								</div>';
-						}else{
-
 							echo '<div class="col-lg-6 col-md-8 col-xs-12">
 									
 									<button class="btn btn-default btn-block btn-lg backColor">
@@ -609,10 +429,6 @@ INFOPRODUCTOS
 									</button>
 
 								</div>';
-
-						}
-
-					}
 
 				?>
 
@@ -907,12 +723,6 @@ ARTÏCULOS RELACIONADOS
 
 						<div class="col-xs-6 precio">';
 
-						if($value["precio"] == 0){
-
-							echo '<h2><small>GRATIS</small></h2>';
-
-						}else{
-
 							if($value["oferta"] != 0){
 
 								echo '<h2>
@@ -932,8 +742,6 @@ ARTÏCULOS RELACIONADOS
 								echo '<h2><small>USD $'.$value["precio"].'</small></h2>';
 
 							}
-							
-						}
 										
 						echo '</div>
 
@@ -947,25 +755,11 @@ ARTÏCULOS RELACIONADOS
 
 								</button>';
 
-								if($value["tipo"] == "virtual" && $value["precio"] != 0){
-
-									if($value["oferta"] != 0){
-
-										echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precioOferta"].'" tipo="'.$value["tipo"].'" peso="'.$value["peso"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
+										echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precio"].'" peso="'.$value["peso"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
 
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 
 										</button>';
-
-									}else{
-
-										echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precio"].'" tipo="'.$value["tipo"].'" peso="'.$value["peso"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
-
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-
-										</button>';
-
-									}
 
 								}
 
@@ -987,8 +781,6 @@ ARTÏCULOS RELACIONADOS
 				}
 
 			echo '</ul>';
-
-		}
 
 		?>
 
