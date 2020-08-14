@@ -181,11 +181,8 @@ if(isset($_GET["ruta"])){
 JAVASCRIPT PERSONALIZADO
 ======================================-->
 
-<script src="<?php echo $url; ?>vistas/js/cabezote.js"></script>
+<script src="<?php echo $url; ?>vistas/js/head.js"></script>
 <script src="<?php echo $url; ?>vistas/js/plantilla.js"></script>
-<script src="<?php echo $url; ?>vistas/js/slide.js"></script>
-<script src="<?php echo $url; ?>vistas/js/buscador.js"></script>
-<script src="<?php echo $url; ?>vistas/js/infoproducto.js"></script>
 
 </body>
 </html>
