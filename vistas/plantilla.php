@@ -15,10 +15,12 @@
 	<title>Tienda Virtual</title>
 
 	<?php
+		
+		$servidor = Ruta::ctrRutaServidor();
 
 		$icono = ControladorPlantilla::ctrEstiloPlantilla();
 
-		echo '<link rel="icon" href="http://localhost/Mibackend/'.$icono["icono"].'">';
+		echo '<link rel="icon" href="http://localhost/backend/'.$icono["icono"].'">';
 
 		/*=============================================
 		MANTENER LA RUTA FIJA DEL PROYECTO
@@ -38,11 +40,15 @@
 
 	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/plantilla.css">
 
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/cabezote.css">
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/head.css">
+
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/slide.css">
 
 	<script src="<?php echo $url; ?>vistas/js/plugins/jquery.min.js"></script>
 
 	<script src="<?php echo $url; ?>vistas/js/plugins/bootstrap.min.js"></script>
+
+	<script src="<?php echo $url; ?>vistas/js/plugins/jquery.easing.js"></script>
 
 </head>
 
@@ -51,7 +57,7 @@
 <?php
 
 /*=============================================
-CABEZOTE
+HEAD
 =============================================*/
 
 include "modulos/head.php";
@@ -112,12 +118,17 @@ if(isset($_GET["ruta"])){
 
 	}
 
+  	}else{
+
+	include "modulos/slide.php";
+
 }
 
 ?>
 
 <script src="<?php echo $url; ?>vistas/js/head.js"></script>
 <script src="<?php echo $url; ?>vistas/js/plantilla.js"></script>
+<script src="<?php echo $url; ?>vistas/js/slide.js"></script>
 
 </body>
 </html>

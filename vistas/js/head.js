@@ -1,5 +1,5 @@
 /*=============================================
-CABEZOTE
+HEAD
 =============================================*/
 
 $("#btnCategorias").click(function(){
@@ -10,7 +10,7 @@ $("#btnCategorias").click(function(){
 
 	}else{
 
-		$("#cabezote").after($("#categorias").slideToggle("fast"))
+		$("#head").after($("#categorias").slideToggle("fast"))
 		
 	}
 
