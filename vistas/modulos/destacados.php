@@ -30,7 +30,7 @@ $titulosModulos = array("LO MÁS VENDIDO", "LO MÁS VISTO");
 $rutaModulos = array("lo-mas-vendido","lo-mas-visto");
 
 
-if($titulosModulos[1] == "LO MÁS VENDIDO"){
+if($titulosModulos[0] == "LO MÁS VENDIDO"){
 
 $ordenar = "ventas";
 $item = null;
@@ -40,7 +40,7 @@ $ventas = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor);
 
 }
 
-if($titulosModulos[2] == "LO MÁS VISTO"){
+if($titulosModulos[1] == "LO MÁS VISTO"){
 
 $ordenar = "vistas";
 $item = null;
