@@ -13,14 +13,15 @@
 	<meta name="keyword" content="Lorem ipsum, dolor sit amet, consectetur, adipisicing, elit, Quisquam, accusantium, enim, esse">
 
 	<title>Tienda Virtual</title>
-
 	<?php
-		
+
+		session_start();
+
 		$servidor = Ruta::ctrRutaServidor();
 
 		$icono = ControladorPlantilla::ctrEstiloPlantilla();
 
-		echo '<link rel="icon" href="http://localhost/backend/'.$icono["icono"].'">';
+		echo '<link rel="icon" href="'.$servidor.$icono["icono"].'">';
 
 		/*=============================================
 		MANTENER LA RUTA FIJA DEL PROYECTO
@@ -29,6 +30,7 @@
 		$url = Ruta::ctrRuta();
 
 	?>
+
 
 	<!--=====================================
 	PLUGINS DE CSS
@@ -99,11 +101,9 @@ if(isset($_GET["ruta"])){
 
 	$rutaCategorias = ControladorProductos::ctrMostrarCategorias($item, $valor);
 
-	if($rutas[0] == $rutaCategorias["ruta"]){
-
-		$ruta = $rutas[0];
-
-	}
+    if (is_array($rutaCategorias) && $rutas[0] == $rutaCategorias["ruta"]) {
+    $ruta = $rutas[0];
+    }
 
 	/*=============================================
 	URL'S AMIGABLES DE SUBCATEGORÍAS
@@ -126,12 +126,10 @@ if(isset($_GET["ruta"])){
 	=============================================*/
 
 	$rutaProductos = ControladorProductos::ctrMostrarInfoProducto($item, $valor);
-	
-	if($rutas[0] == $rutaProductos["ruta"]){
 
-		$infoProducto = $rutas[0];
-
-	}
+    if (is_array($rutaProductos) && $rutas[0] == $rutaProductos["ruta"]) {
+    $infoProducto = $rutas[0];
+    }
 
 	/*=============================================
 	LISTA BLANCA DE URL'S AMIGABLES
@@ -168,6 +166,7 @@ JAVASCRIPT PERSONALIZADO
 <script src="<?php echo $url; ?>vistas/js/head.js"></script>
 <script src="<?php echo $url; ?>vistas/js/plantilla.js"></script>
 <script src="<?php echo $url; ?>vistas/js/slide.js"></script>
+<script src="<?php echo $url; ?>vistas/js/buscador.js"></script>
 
 
 </body>
