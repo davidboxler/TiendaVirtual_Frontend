@@ -2,12 +2,14 @@
 PLANTILLA
 =============================================*/
 
+var rutaOculta = $("#rutaOculta").val();
+
 // Herramienta TOOLTIP
 $('[data-toggle="tooltip"]').tooltip(); 
 
 $.ajax({
 
-	url:"ajax/plantilla.ajax.php",
+	url:rutaOculta+"ajax/plantilla.ajax.php",
 	success:function(respuesta){
 
 		var colorFondo = JSON.parse(respuesta).colorFondo;
@@ -69,13 +71,17 @@ $(window).scroll(function(){
 
 	if(window.matchMedia("(min-width:768px)").matches){
 
-		if(scrollY < ($(".banner").offset().top)-150){
+		if($(".banner").html() != null){
 
-			$(".banner img").css({"margin-top":-scrollY/3+"px"})
+			if(scrollY < ($(".banner").offset().top)-150){
 
-		}else{
+				$(".banner img").css({"margin-top":-scrollY/3+"px"})
 
-			scrollY = 0;
+			}else{
+
+				scrollY = 0;
+			}
+
 		}
 
 	}	
@@ -89,3 +95,39 @@ $.scrollUp({
 	easingType: "easeOutQuint"
 
 });
+
+/*=============================================
+MIGAS DE PAN
+=============================================*/
+
+var pagActiva = $(".pagActiva").html();
+
+if(pagActiva != null){
+
+	var regPagActiva = pagActiva.replace(/-/g, " ");
+
+	$(".pagActiva").html(regPagActiva);
+
+}
+
+/*=============================================
+ENLACES PAGINACIÓN
+=============================================*/
+
+var url = window.location.href;
+
+var indice = url.split("/");
+
+console.log("indice", indice);
+
+var pagActual = indice[5];
+console.log("pagActual", pagActual);
+
+if(isNaN(pagActual)){
+
+	$("#item1").addClass("active");
+
+}else{
+	
+	$("#item"+pagActual).addClass("active");	
+}
