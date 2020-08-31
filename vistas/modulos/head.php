@@ -84,7 +84,7 @@ HEADER
 				
 			    <a href="#">
 						
-						<img src="http://localhost/backend/<?php echo $social["logo"]; ?>" class="img-responsive">
+						<img src="http://localhost/Mibackend/<?php echo $social["logo"]; ?>" class="img-responsive">
 	
 				</a>
 				
