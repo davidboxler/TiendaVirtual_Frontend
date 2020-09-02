@@ -118,8 +118,6 @@ var url = window.location.href;
 
 var indice = url.split("/");
 
-console.log("indice", indice);
-
 var pagActual = indice[5];
 console.log("pagActual", pagActual);
 
