@@ -160,7 +160,7 @@ LISTAR PRODUCTOS
 
 							<figure>
 								
-								<a href="'.$value["ruta"].'" class="pixelProducto">
+								<a href="'.$url.$value["ruta"].'" class="pixelProducto">
 									
 									<img src="'.$servidor.$value["portada"].'" class="img-responsive">
 
@@ -168,11 +168,13 @@ LISTAR PRODUCTOS
 
 							</figure>
 
+							'.$value["id"].'
+
 							<h4>
 					
 								<small>
 									
-									<a href="'.$value["ruta"].'" class="pixelProducto">
+									<a href="'.$url.$value["ruta"].'" class="pixelProducto">
 										
 										'.$value["titulo"].'<br>
 
@@ -228,17 +230,7 @@ LISTAR PRODUCTOS
 										
 										<i class="fa fa-heart" aria-hidden="true"></i>
 
-									</button>';
-
-									echo '<a href="'.$value["ruta"].'" class="pixelProducto">
-									
-										<button type="button" class="btn btn-default btn-xs" data-toggle="tooltip" title="Ver producto">
-											
-											<i class="fa fa-eye" aria-hidden="true"></i>
-
-										</button>	
-									
-									</a>
+									</button>
 
 								</div>
 
@@ -259,7 +251,7 @@ LISTAR PRODUCTOS
 							   
 							<figure>
 						
-								<a href="'.$value["ruta"].'" class="pixelProducto">
+								<a href="'.$url.$value["ruta"].'" class="pixelProducto">
 									
 									<img src="'.$servidor.$value["portada"].'" class="img-responsive">
 
@@ -275,9 +267,7 @@ LISTAR PRODUCTOS
 
 								<small>
 
-									<a href="'.$value["ruta"].'" class="pixelProducto">
-
-										<a href="'.$value["ruta"].'" class="pixelProducto">
+									<a href="'.$url.$value["ruta"].'" class="pixelProducto">
 										
 										'.$value["titulo"].'<br>';
 
@@ -327,17 +317,7 @@ LISTAR PRODUCTOS
 
 						  			<i class="fa fa-heart" aria-hidden="true"></i>
 
-						  		</button>';
-
-						  		echo '<a href="'.$value["ruta"].'" class="pixelProducto">
-
-							  		<button type="button" class="btn btn-default btn-xs" data-toggle="tooltip" title="Ver producto">
-
-							  		<i class="fa fa-eye" aria-hidden="true"></i>
-
-							  		</button>
-
-						  		</a>
+						  		</button>
 							
 							</div>
 
