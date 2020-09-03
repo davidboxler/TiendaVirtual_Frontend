@@ -230,7 +230,17 @@ LISTAR PRODUCTOS
 										
 										<i class="fa fa-heart" aria-hidden="true"></i>
 
-									</button>
+									</button>';
+
+									echo '<a href="'.$url.$value["ruta"].'" class="pixelProducto">
+									
+										<button type="button" class="btn btn-default btn-xs" data-toggle="tooltip" title="Ver producto">
+											
+											<i class="fa fa-eye" aria-hidden="true"></i>
+
+										</button>	
+									
+									</a>
 
 								</div>
 
@@ -317,7 +327,17 @@ LISTAR PRODUCTOS
 
 						  			<i class="fa fa-heart" aria-hidden="true"></i>
 
-						  		</button>
+						  		</button>';
+
+						  		echo '<a href="'.$url.$value["ruta"].'" class="pixelProducto">
+
+							  		<button type="button" class="btn btn-default btn-xs" data-toggle="tooltip" title="Ver producto">
+
+							  		<i class="fa fa-eye" aria-hidden="true"></i>
+
+							  		</button>
+
+						  		</a>
 							
 							</div>
 

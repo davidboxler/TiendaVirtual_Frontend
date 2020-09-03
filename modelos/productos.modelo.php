@@ -60,11 +60,11 @@ class ModeloProductos{
 	MOSTRAR PRODUCTOS
 	=============================================*/
 
-	static public function mdlMostrarProductos($tabla, $ordenar, $item, $valor, $base, $tope, $modo){
+	static public function mdlMostrarProductos($tabla, $ordenar, $item, $valor){
 
 		if($item != null){
 
-			$stmt = Conexion::conectar()->prepare("SELECT *FROM $tabla WHERE $item = :$item ORDER BY $ordenar $modo LIMIT $base, $tope");
+			$stmt = Conexion::conectar()->prepare("SELECT *FROM $tabla WHERE $item = :$item ORDER BY $ordenar DESC LIMIT 4");
 
 			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 
@@ -74,7 +74,7 @@ class ModeloProductos{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare("SELECT *FROM $tabla ORDER BY $ordenar $modo LIMIT $base, $tope");
+			$stmt = Conexion::conectar()->prepare("SELECT *FROM $tabla ORDER BY $ordenar DESC LIMIT 4");
 
 			$stmt -> execute();
 
@@ -87,7 +87,6 @@ class ModeloProductos{
 		$stmt = null;
 
 	}
-
 
 	/*=============================================
 	MOSTRAR INFOPRODUCTO
@@ -189,33 +188,6 @@ class ModeloProductos{
 		$stmt -> execute();
 
 		return $stmt -> fetchAll();
-
-		$stmt -> close();
-
-		$stmt = null;
-
-	}
-
-	/*=============================================
-	ACTUALIZAR VISTA PRODUCTO
-	=============================================*/
-
-	static public function mdlActualizarVistaProducto($tabla, $datos, $item){
-
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item = :$item WHERE ruta = :ruta");
-
-		$stmt -> bindParam(":ruta", $datos["ruta"], PDO::PARAM_STR);
-		$stmt -> bindParam(":".$item, $datos["valor"], PDO::PARAM_STR);
-
-		if($stmt -> execute()){
-
-			return "ok";
-		
-		}else{
-
-			return "error";	
-
-		}
 
 		$stmt -> close();
 
