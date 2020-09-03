@@ -16,6 +16,8 @@
 
 	<?php
 
+		session_start();
+
 		$servidor = Ruta::ctrRutaServidor();
 
 		$icono = ControladorPlantilla::ctrEstiloPlantilla();
@@ -29,7 +31,6 @@
 		$url = Ruta::ctrRuta();
 
 	?>
-
 
 	<!--=====================================
 	PLUGINS DE CSS
@@ -142,6 +143,10 @@ if(isset($_GET["ruta"])){
 
 		include "modulos/infoproducto.php";
 
+	}else if($rutas[0] == "buscador"){
+
+		include "modulos/buscador.php";	
+
 	}else{
 
 		include "modulos/error404.php";
@@ -157,6 +162,9 @@ if(isset($_GET["ruta"])){
 }
 
 ?>
+
+
+<input type="hidden" value="<?php echo $url; ?>" id="rutaOculta">
 <!--=====================================
 JAVASCRIPT PERSONALIZADO
 ======================================-->
@@ -164,6 +172,7 @@ JAVASCRIPT PERSONALIZADO
 <script src="<?php echo $url; ?>vistas/js/head.js"></script>
 <script src="<?php echo $url; ?>vistas/js/plantilla.js"></script>
 <script src="<?php echo $url; ?>vistas/js/slide.js"></script>
+<script src="<?php echo $url; ?>vistas/js/buscador.js"></script>
 
 </body>
 </html>
