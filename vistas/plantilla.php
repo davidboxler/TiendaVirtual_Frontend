@@ -153,9 +153,9 @@ if(isset($_GET["ruta"])){
 
 		include "modulos/infoproducto.php";
 
-	}else if($rutas[0] == "buscador"){
+	}else if($rutas[0] == "buscador" || $rutas[0] == "verificar" || $rutas[0] == "salir" || $rutas[0] == "perfil"){
 
-		include "modulos/buscador.php";	
+		include "modulos/".$rutas[0].".php";
 
 	}else{
 
@@ -172,7 +172,6 @@ if(isset($_GET["ruta"])){
 }
 
 ?>
-
 
 <input type="hidden" value="<?php echo $url; ?>" id="rutaOculta">
 <!--=====================================

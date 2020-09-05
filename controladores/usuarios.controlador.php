@@ -23,7 +23,8 @@ class ControladorUsuarios{
 							   "email"=> $_POST["regEmail"],
 							   "foto"=>"",
 							   "modo"=> "directo",
-							   "verificacion"=> 1);
+							   "verificacion"=> 1,
+							   "emailEncriptado"=>$encriptarEmail);
 
 				$tabla = "usuarios";
 
@@ -165,4 +166,33 @@ class ControladorUsuarios{
 		}
 
 	}
+
+	/*=============================================
+	MOSTRAR USUARIO
+	=============================================*/
+
+	static public function ctrMostrarUsuario($item, $valor){
+
+		$tabla = "usuarios";
+
+		$respuesta = ModeloUsuarios::mdlMostrarUsuario($tabla, $item, $valor);
+
+		return $respuesta;
+
+	}
+
+	/*=============================================
+	ACTUALIZAR USUARIO
+	=============================================*/
+
+	static public function ctrActualizarUsuario($id, $item, $valor){
+
+		$tabla = "usuarios";
+
+		$respuesta = ModeloUsuarios::mdlActualizarUsuario($tabla, $id, $item, $valor);
+
+		return $respuesta;
+
+	}
+
 }
