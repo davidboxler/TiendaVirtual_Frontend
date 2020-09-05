@@ -440,8 +440,8 @@ VENTANA MODAL PARA EL INGRESO
 
 				<?php
 
-					//$ingreso = new ControladorUsuarios();
-					//$ingreso -> ctrIngresoUsuario();
+					$ingreso = new ControladorUsuarios();
+					$ingreso -> ctrIngresoUsuario();
 
 				?>
 				
