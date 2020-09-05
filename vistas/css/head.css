@@ -110,7 +110,7 @@ VENTANAS MODALES
 	color:white;
 }
 
-.modalFormulario .facebook{
+.modalFormulario .facebook, .modalFormulario .google{
 	cursor:pointer;
 }
 
@@ -118,7 +118,11 @@ VENTANAS MODALES
 	background:#46639f;
 }
 
-.modalFormulario .facebook p{
+.modalFormulario .google p{
+	background:#d6513e;
+}
+
+.modalFormulario .facebook p, .modalFormulario .google p{
 	color:white;
 	text-align:center;
 	line-height:40px;

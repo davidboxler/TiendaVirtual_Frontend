@@ -23,8 +23,7 @@ class ControladorUsuarios{
 							   "email"=> $_POST["regEmail"],
 							   "foto"=>"",
 							   "modo"=> "directo",
-							   "verificacion"=> 1,
-							   "emailEncriptado"=>$encriptarEmail);
+							   "verificacion"=> 1);
 
 				$tabla = "usuarios";
 

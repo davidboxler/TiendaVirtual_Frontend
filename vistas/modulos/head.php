@@ -237,6 +237,20 @@ VENTANA MODAL PARA EL REGISTRO
 			</div>
 
 			<!--=====================================
+			REGISTRO GOOGLE
+			======================================-->
+			<a href="<?php echo $rutaGoogle; ?>">
+
+				<div class="col-sm-6 col-xs-12 google">
+					
+					<p>
+					  <i class="fa fa-google"></i>
+						Registro con Google
+					</p>
+
+				</div>
+			</a>
+			<!--=====================================
 			REGISTRO DIRECTO
 			======================================-->
 
@@ -367,6 +381,22 @@ VENTANA MODAL PARA EL INGRESO
 			</div>
 
 			<!--=====================================
+			INGRESO GOOGLE
+			======================================-->
+			<a href="<?php echo $rutaGoogle; ?>">
+			
+				<div class="col-sm-6 col-xs-12 google">
+					
+					<p>
+					  <i class="fa fa-google"></i>
+						Ingreso con Google
+					</p>
+
+				</div>
+
+			</a>
+
+			<!--=====================================
 			INGRESO DIRECTO
 			======================================-->
 
@@ -410,8 +440,8 @@ VENTANA MODAL PARA EL INGRESO
 
 				<?php
 
-					$ingreso = new ControladorUsuarios();
-					$ingreso -> ctrIngresoUsuario();
+					//$ingreso = new ControladorUsuarios();
+					//$ingreso -> ctrIngresoUsuario();
 
 				?>
 				
@@ -480,8 +510,8 @@ VENTANA MODAL PARA OLVIDO DE CONTRASEÑA
 
 				<?php
 
-					$password = new ControladorUsuarios();
-					$password -> ctrOlvidoPassword();
+					//$password = new ControladorUsuarios();
+					//$password -> ctrOlvidoPassword();
 
 				?>
 				
