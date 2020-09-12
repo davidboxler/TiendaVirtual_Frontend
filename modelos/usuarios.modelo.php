@@ -81,5 +81,5 @@ class ModeloUsuarios{
 		$stmt = null;
 
 	}
-	
+
 }

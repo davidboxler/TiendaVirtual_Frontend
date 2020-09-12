@@ -268,7 +268,7 @@ LISTAR PRODUCTOS
 
 											<small>
 						
-												<strong class="oferta">USD $'.$value["precio"].'</strong>
+												<strong class="oferta"> $'.$value["precio"].'</strong>
 
 											</small>
 
@@ -278,7 +278,7 @@ LISTAR PRODUCTOS
 
 								}else{
 
-									echo '<h2><small>USD $'.$value["precio"].'</small></h2>';
+									echo '<h2><small> $'.$value["precio"].'</small></h2>';
 
 								}
 											
@@ -371,7 +371,7 @@ LISTAR PRODUCTOS
 
 											<small>
 						
-												<strong class="oferta">USD $'.$value["precio"].'</strong>
+												<strong class="oferta"> $'.$value["precio"].'</strong>
 
 											</small>
 
@@ -381,7 +381,7 @@ LISTAR PRODUCTOS
 
 								}else{
 
-									echo '<h2><small>USD $'.$value["precio"].'</small></h2>';
+									echo '<h2><small> $'.$value["precio"].'</small></h2>';
 
 								}
 

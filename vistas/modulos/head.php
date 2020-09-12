@@ -1,7 +1,25 @@
 <?php
 
-//$servidor = Ruta::ctrRutaServidor();
+$servidor = Ruta::ctrRutaServidor();
 $url = Ruta::ctrRuta();
+
+/*=============================================
+INICIO DE SESIÓN USUARIO
+=============================================*/
+
+if(isset($_SESSION["validarSesion"])){
+
+	if($_SESSION["validarSesion"] == "ok"){
+
+		echo '<script>
+		
+			localStorage.setItem("usuario","'.$_SESSION["id"].'");
+
+		</script>';
+
+	}
+
+}
 
 ?>
 
@@ -51,11 +69,66 @@ TOP
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 registro">
 				
 				<ul>
-					
-					<li><a href="#modalIngreso" data-toggle="modal">Ingresar</a></li>
-					<li>|</li>
-					<li><a href="#modalRegistro" data-toggle="modal">Crear una cuenta</a></li>
 
+				<?php
+
+				if(isset($_SESSION["validarSesion"])){
+
+					if($_SESSION["validarSesion"] == "ok"){
+
+						if($_SESSION["modo"] == "directo"){
+
+							if($_SESSION["foto"] != ""){
+
+								echo '<li>
+
+										<img class="img-circle" src="'.$url.$_SESSION["foto"].'" width="10%">
+
+									 </li>';
+
+							}else{
+
+								echo '<li>
+
+									<img class="img-circle" src="'.$servidor.'vistas/img/usuarios/default/Usuario.jpg" width="10%">
+
+								</li>';
+
+							}
+
+							echo '<li>|</li>
+							 <li><a href="'.$url.'perfil">Ver Perfil</a></li>
+							 <li>|</li>
+							 <li><a href="'.$url.'salir">Salir</a></li>';
+
+
+						}
+
+						if($_SESSION["modo"] == "facebook"){
+
+							echo '<li>
+
+									<img class="img-circle" src="'.$_SESSION["foto"].'" width="10%">
+
+								   </li>
+								   <li>|</li>
+						 		   <li><a href="'.$url.'perfil">Ver Perfil</a></li>
+						 		   <li>|</li>
+						 		   <li><a href="'.$url.'salir" class="salir">Salir</a></li>';
+
+						}
+					}
+
+				}else{
+
+					echo '<li><a href="#modalIngreso" data-toggle="modal">Ingresar</a></li>
+						  <li>|</li>
+						  <li><a href="#modalRegistro" data-toggle="modal">Crear una cuenta</a></li>';
+
+				}
+
+				?>
+	
 				</ul>
 
 			</div>	
@@ -154,7 +227,7 @@ HEADER
 				
 				</a>	
 
-				<p>TU CESTA <span class="cantidadCesta">3</span> <br> USD $ <span class="sumaCesta">20</span></p>	
+				<p>TU CESTA <span class="cantidadCesta">3</span> <br> $ <span class="sumaCesta">20</span></p>	
 
 			</div>
 
@@ -510,8 +583,8 @@ VENTANA MODAL PARA OLVIDO DE CONTRASEÑA
 
 				<?php
 
-					//$password = new ControladorUsuarios();
-					//$password -> ctrOlvidoPassword();
+					$password = new ControladorUsuarios();
+					$password -> ctrOlvidoPassword();
 
 				?>
 				

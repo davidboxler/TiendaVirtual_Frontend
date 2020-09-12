@@ -222,7 +222,7 @@ INFOPRODUCTOS
 
 						if($infoproducto["oferta"] == 0){
 
-							echo '<h2 class="text-muted">USD $'.$infoproducto["precio"].'</h2>';
+							echo '<h2 class="text-muted"> $'.$infoproducto["precio"].'</h2>';
 
 						}else{
 
@@ -230,7 +230,7 @@ INFOPRODUCTOS
 
 								<span>
 								
-									<strong class="oferta">USD $'.$infoproducto["precio"].'</strong>
+									<strong class="oferta"> $'.$infoproducto["precio"].'</strong>
 
 								</span>
 
@@ -689,7 +689,7 @@ ARTÏCULOS RELACIONADOS
 
 										<small>
 					
-											<strong class="oferta">USD $'.$value["precio"].'</strong>
+											<strong class="oferta"> $'.$value["precio"].'</strong>
 
 										</small>
 
@@ -699,7 +699,7 @@ ARTÏCULOS RELACIONADOS
 
 							}else{
 
-								echo '<h2><small>USD $'.$value["precio"].'</small></h2>';
+								echo '<h2><small> $'.$value["precio"].'</small></h2>';
 
 							}
 										
