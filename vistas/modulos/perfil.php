@@ -79,277 +79,186 @@ SECCIÓN PERFIL
 		<div class="tab-content">
 
             <!--=====================================
-			PESTAÑA COMPRAS
+			PESTAÑA PERFIL
 			======================================-->
+		  	
+		  	<div id="perfil" class="tab-pane fade">
+		    	
+				<div class="row">
+					
+					<form method="post" enctype="multipart/form-data">
+					
+						<div class="col-md-3 col-sm-4 col-xs-12 text-center">
+							
+							<br>
 
-	  		<div id="compras" class="tab-pane fade in active">
-		    
-            <div class="panel-group">
+							<figure id="imgPerfil">
+								
+							<?php
 
-            <?php
+							echo '<input type="hidden" value="'.$_SESSION["id"].'" id="idUsuario" name="idUsuario">
+							      <input type="hidden" value="'.$_SESSION["password"].'" name="passUsuario">
+							      <input type="hidden" value="'.$_SESSION["foto"].'" name="fotoUsuario" id="fotoUsuario">
+							      <input type="hidden" value="'.$_SESSION["modo"].'" name="modoUsuario" id="modoUsuario">';
 
-                $item = "id_usuario";
-                $valor = $_SESSION["id"];
 
-                $compras = ControladorUsuarios::ctrMostrarCompras($item, $valor);
+							if($_SESSION["modo"] == "directo"){
 
-                if(!$compras){
+								if($_SESSION["foto"] != ""){
 
-                    echo '<div class="col-xs-12 text-center error404">
-                           
-                        <h1><small>¡Oops!</small></h1>
-                
-                        <h2>Aún no tienes compras realizadas en esta tienda</h2>
+									echo '<img src="'.$url.$_SESSION["foto"].'" class="img-thumbnail">';
 
-                      </div>';
+								}else{
 
-                }else{
+									echo '<img src="'.$servidor.'vistas/img/usuarios/default/anonymous.png" class="img-thumbnail">';
 
-                    foreach ($compras as $key => $value1) {
+								}
+					
 
-                        $ordenar = "id";
-                        $item = "id";
-                        $valor = $value1["id_producto"];
+							}else{
 
-                        $productos = ControladorProductos::ctrListarProductos($ordenar, $item, $valor);
+								echo '<img src="'.$_SESSION["foto"].'" class="img-thumbnail">';
+							}		
 
-                        foreach ($productos as $key => $value2) {
-                        
-                            echo '<div class="panel panel-default">
-                                    
-                                    <div class="panel-body">
+							?>
 
-                                        <div class="col-md-2 col-sm-6 col-xs-12">
+							</figure>
 
-                                            <figure>
-                                            
-                                                <img class="img-thumbnail" src="'.$servidor.$value2["portada"].'">
+							<br>
 
-                                            </figure>
+							<?php
 
-                                        </div>
+							if($_SESSION["modo"] == "directo"){
+							
+							echo '<button type="button" class="btn btn-default" id="btnCambiarFoto">
+									
+									Cambiar foto de perfil
+									
+									</button>';
 
-                                        <div class="col-sm-6 col-xs-12">
+							}
 
-                                            <h1><small>'.$value2["titulo"].'</small></h1>
+							?>
 
-                                            <p>'.$value2["titular"].'</p>';
+							<div id="subirImagen">
+								
+								<input type="file" class="form-control" id="datosImagen" name="datosImagen">
 
-                                                echo '<h6>Proceso de entrega: '.$value2["entrega"].' días hábiles</h6>';
+								<img class="previsualizar">
 
-                                                if($value1["envio"] == 0){
+							</div>
 
-                                                    echo '<div class="progress">
+						</div>	
 
-                                                        <div class="progress-bar progress-bar-info" role="progressbar" style="width:33.33%">
-                                                            <i class="fa fa-check"></i> Despachado
-                                                        </div>
+						<div class="col-md-9 col-sm-8 col-xs-12">
 
-                                                        <div class="progress-bar progress-bar-default" role="progressbar" style="width:33.33%">
-                                                            <i class="fa fa-clock-o"></i> Enviando
-                                                        </div>
+						<br>
+							
+						<?php
 
-                                                        <div class="progress-bar progress-bar-success" role="progressbar" style="width:33.33%">
-                                                            <i class="fa fa-clock-o"></i> Entregado
-                                                        </div>
+						if($_SESSION["modo"] != "directo"){
 
-                                                    </div>';
+							echo '<label class="control-label text-muted text-uppercase">Nombre:</label>
+									
+									<div class="input-group">
+								
+										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+										<input type="text" class="form-control"  value="'.$_SESSION["nombre"].'" readonly>
 
-                                                }
+									</div>
 
-                                                if($value1["envio"] == 1){
+									<br>
 
-                                                    echo '<div class="progress">
+									<label class="control-label text-muted text-uppercase">Correo electrónico:</label>
+									
+									<div class="input-group">
+								
+										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+										<input type="text" class="form-control"  value="'.$_SESSION["email"].'" readonly>
 
-                                                        <div class="progress-bar progress-bar-info" role="progressbar" style="width:33.33%">
-                                                            <i class="fa fa-check"></i> Despachado
-                                                        </div>
+									</div>
 
-                                                        <div class="progress-bar progress-bar-default" role="progressbar" style="width:33.33%">
-                                                            <i class="fa fa-check"></i> Enviando
-                                                        </div>
+									<br>
 
-                                                        <div class="progress-bar progress-bar-success" role="progressbar" style="width:33.33%">
-                                                            <i class="fa fa-clock-o"></i> Entregado
-                                                        </div>
+									<label class="control-label text-muted text-uppercase">Modo de registro en el sistema:</label>
+									
+									<div class="input-group">
+								
+										<span class="input-group-addon"><i class="fa fa-'.$_SESSION["modo"].'"></i></span>
+										<input type="text" class="form-control text-uppercase"  value="'.$_SESSION["modo"].'" readonly>
 
-                                                    </div>';
+									</div>
 
-                                                }
+									<br>';
+		
 
-                                                if($value1["envio"] == 2){
+						}else{
 
-                                                    echo '<div class="progress">
+							echo '<label class="control-label text-muted text-uppercase" for="editarNombre">Cambiar Nombre:</label>
+									
+									<div class="input-group">
+								
+										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+										<input type="text" class="form-control" id="editarNombre" name="editarNombre" value="'.$_SESSION["nombre"].'">
 
-                                                        <div class="progress-bar progress-bar-info" role="progressbar" style="width:33.33%">
-                                                            <i class="fa fa-check"></i> Despachado
-                                                        </div>
+									</div>
 
-                                                        <div class="progress-bar progress-bar-default" role="progressbar" style="width:33.33%">
-                                                            <i class="fa fa-check"></i> Enviando
-                                                        </div>
-
-                                                        <div class="progress-bar progress-bar-success" role="progressbar" style="width:33.33%">
-                                                            <i class="fa fa-check"></i> Entregado
-                                                        </div>
-
-                                                    </div>';
-
-                                                }
-
-                                            echo '<h4 class="pull-right"><small>Comprado el '.substr($value1["fecha"],0,-8).'</small></h4>
-                                                            
-                                        </div>
-
-                                        <div class="col-md-4 col-xs-12">';
-
-                                        $datos = array("idUsuario"=>$_SESSION["id"],
-                                                        "idProducto"=>$value2["id"] );
-
-                                        $comentarios = ControladorUsuarios::ctrMostrarComentariosPerfil($datos);
-
-                                            echo '<div class="pull-right">
-
-                                                <a class="calificarProducto" href="#modalComentarios" data-toggle="modal" idComentario="'.$comentarios["id"].'">
-                                                
-                                                    <button class="btn btn-default backColor">Calificar Producto</button>
-
-                                                </a>
-
-                                            </div>
-
-                                            <br><br>
-
-                                            <div class="pull-right">
-
-                                                <h3 class="text-right">';
-
-                                                if($comentarios["calificacion"] == 0 && $comentarios["comentario"] == ""){
-
-                                                    echo '<i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                            <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                            <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                            <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                            <i class="fa fa-star-o text-success" aria-hidden="true"></i>';
-
-                                                }else{
-
-                                                    switch($comentarios["calificacion"]){
-
-                                                        case 0.5:
-                                                        echo '<i class="fa fa-star-half-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>';
-                                                        break;
+								<br>
 
-                                                        case 1.0:
-                                                        echo '<i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>';
-                                                        break;
-
-                                                        case 1.5:
-                                                        echo '<i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-half-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>';
-                                                        break;
+								<label class="control-label text-muted text-uppercase" for="editarEmail">Cambiar Correo Electrónico:</label>
 
-                                                        case 2.0:
-                                                        echo '<i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>';
-                                                        break;
+								<div class="input-group">
+								
+										<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+										<input type="text" class="form-control" id="editarEmail" name="editarEmail" value="'.$_SESSION["email"].'">
 
-                                                        case 2.5:
-                                                        echo '<i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-half-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>';
-                                                        break;
+									</div>
 
-                                                        case 3.0:
-                                                        echo '<i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>';
-                                                        break;
+								<br>
 
-                                                        case 3.5:
-                                                        echo '<i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-half-o text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>';
-                                                        break;
+								<label class="control-label text-muted text-uppercase" for="editarPassword">Cambiar Contraseña:</label>
 
-                                                        case 4.0:
-                                                        echo '<i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-o text-success" aria-hidden="true"></i>';
-                                                        break;
+								<div class="input-group">
+								
+										<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+										<input type="text" class="form-control" id="editarPassword" name="editarPassword" placeholder="Escribe la nueva contraseña">
 
-                                                        case 4.5:
-                                                        echo '<i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star-half-o text-success" aria-hidden="true"></i>';
-                                                        break;
+									</div>
 
-                                                        case 5.0:
-                                                        echo '<i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>
-                                                              <i class="fa fa-star text-success" aria-hidden="true"></i>';
-                                                        break;
+								<br>
 
-                                                    }
+								<button type="submit" class="btn btn-default backColor btn-md pull-left">Actualizar Datos</button>';
 
+						}
 
-                                                }
-                                            
-                                                    
-                                                echo '</h3>
+						?>
 
-                                                <p class="panel panel-default text-right" style="padding:5px">
+						</div>
 
-                                                    <small>
+						<?php
 
-                                                    '.$comentarios["comentario"].'
+							$actualizarPerfil = new ControladorUsuarios();
+							$actualizarPerfil->ctrActualizarPerfil();
 
-                                                    </small>
-                                                
-                                                </p>
+						?>					
 
-                                            </div>
+					</form>
 
-                                        </div>
+					<button class="btn btn-danger btn-md pull-right" id="eliminarUsuario">Eliminar cuenta</button>
 
-                                    </div>
+					<?php
 
-                                </div>';
+							//$borrarUsuario = new ControladorUsuarios();
+							//$borrarUsuario->ctrEliminarUsuario();
 
-                        }
-                        
-                    }
-                }
-            ?>
-              
-            
+						?>	
 
-        </div>
+				</div>
 
-    </div>
+		  	</div>
+
+		</div>
+
+	</div>
+
+</div>                
