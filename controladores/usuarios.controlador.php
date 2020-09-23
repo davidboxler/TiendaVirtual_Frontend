@@ -735,4 +735,150 @@ class ControladorUsuarios{
 
 	}
 
+	/*=============================================
+	MOSTRAR COMPRAS
+	=============================================*/
+
+	static public function ctrMostrarCompras($item, $valor){
+
+		$tabla = "compras";
+
+		$respuesta = ModeloUsuarios::mdlMostrarCompras($tabla, $item, $valor);
+
+		return $respuesta;
+
+	}
+
+	/*=============================================
+	MOSTRAR COMENTARIOS EN PERFIL
+	=============================================*/
+
+	static public function ctrMostrarComentariosPerfil($datos){
+
+		$tabla = "comentarios";
+
+		$respuesta = ModeloUsuarios::mdlMostrarComentariosPerfil($tabla, $datos);
+
+		return $respuesta;
+
+	}
+
+	/*=============================================
+	ACTUALIZAR COMENTARIOS
+	=============================================*/
+
+	public function ctrActualizarComentario(){
+
+		if(isset($_POST["idComentario"])){
+
+			if(preg_match('/^[,\\.\\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["comentario"])){
+
+				if($_POST["comentario"] != ""){
+
+					$tabla = "comentarios";
+
+					$datos = array("id"=>$_POST["idComentario"],
+								   "calificacion"=>$_POST["puntaje"],
+								   "comentario"=>$_POST["comentario"]);
+
+					$respuesta = ModeloUsuarios::mdlActualizarComentario($tabla, $datos);
+
+					if($respuesta == "ok"){
+
+						echo'<script>
+
+								swal({
+									  title: "¡GRACIAS POR COMPARTIR SU OPINIÓN!",
+									  text: "¡Su calificación y comentario ha sido guardado!",
+									  type: "success",
+									  confirmButtonText: "Cerrar",
+									  closeOnConfirm: false
+								},
+
+								function(isConfirm){
+										 if (isConfirm) {	   
+										   history.back();
+										  } 
+								});
+
+							  </script>';
+
+					}
+
+				}else{
+
+					echo'<script>
+
+						swal({
+							  title: "¡ERROR AL ENVIAR SU CALIFICACIÓN!",
+							  text: "¡El comentario no puede estar vacío!",
+							  type: "error",
+							  confirmButtonText: "Cerrar",
+							  closeOnConfirm: false
+						},
+
+						function(isConfirm){
+								 if (isConfirm) {	   
+								   history.back();
+								  } 
+						});
+
+					  </script>';
+
+				}	
+
+			}else{
+
+				echo'<script>
+
+					swal({
+						  title: "¡ERROR AL ENVIAR SU CALIFICACIÓN!",
+						  text: "¡El comentario no puede llevar caracteres especiales!",
+						  type: "error",
+						  confirmButtonText: "Cerrar",
+						  closeOnConfirm: false
+					},
+
+					function(isConfirm){
+							 if (isConfirm) {	   
+							   history.back();
+							  } 
+					});
+
+				  </script>';
+
+			}
+
+		}
+
+	}
+
+	/*=============================================
+	AGREGAR A LISTA DE DESEOS
+	=============================================*/
+
+	static public function ctrAgregarDeseo($datos){
+
+		$tabla = "deseos";
+
+		$respuesta = ModeloUsuarios::mdlAgregarDeseo($tabla, $datos);
+
+		return $respuesta;
+
+	}
+
+	/*=============================================
+	MOSTRAR LISTA DE DESEOS
+	=============================================*/
+
+	static public function ctrMostrarDeseos($item){
+
+		$tabla = "deseos";
+
+		$respuesta = ModeloUsuarios::mdlMostrarDeseos($tabla, $item);
+
+		return $respuesta;
+
+	}
+
 }
