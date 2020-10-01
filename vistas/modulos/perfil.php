@@ -464,6 +464,12 @@ SECCIÓN PERFIL
 
 											</button>';
 
+											echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precio"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
+
+											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+											</button>';
+
 											echo '<a href="'.$url.$value2["ruta"].'" class="pixelProducto">
 											
 												<button type="button" class="btn btn-default btn-xs" data-toggle="tooltip" title="Ver producto">
@@ -663,8 +669,8 @@ SECCIÓN PERFIL
 
 					<?php
 
-							//$borrarUsuario = new ControladorUsuarios();
-							//$borrarUsuario->ctrEliminarUsuario();
+							$borrarUsuario = new ControladorUsuarios();
+							$borrarUsuario->ctrEliminarUsuario();
 
 						?>	
 

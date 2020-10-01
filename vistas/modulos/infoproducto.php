@@ -380,7 +380,7 @@ INFOPRODUCTOS
 
 							echo '<div class="col-lg-6 col-md-8 col-xs-12">
 									
-									<button class="btn btn-default btn-block btn-lg backColor">
+							<button class="btn btn-default btn-block btn-lg backColor agregarCarrito"  idProducto="'.$infoproducto["id"].'" imagen="'.$servidor.$infoproducto["portada"].'" titulo="'.$infoproducto["titulo"].'" precio="'.$infoproducto["precio"].'">
 
 									ADICIONAR AL CARRITO 
 
@@ -876,6 +876,12 @@ ARTÏCULOS RELACIONADOS
 								<button type="button" class="btn btn-default btn-xs deseos" idProducto="'.$value["id"].'" data-toggle="tooltip" title="Agregar a mi lista de deseos">
 									
 									<i class="fa fa-heart" aria-hidden="true"></i>
+
+								</button>';
+
+								echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precio"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
+
+								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 
 								</button>';
 

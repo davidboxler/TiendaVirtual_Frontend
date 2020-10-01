@@ -217,6 +217,12 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 
 									</button>';
 
+									echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precio"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
+
+									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+									</button>';
+
 									echo '<a href="'.$value["ruta"].'" class="pixelProducto">
 									
 										<button type="button" class="btn btn-default btn-xs" data-toggle="tooltip" title="Ver producto">
@@ -314,7 +320,13 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 
 						  			<i class="fa fa-heart" aria-hidden="true"></i>
 
-						  		</button>';
+								  </button>';
+								  
+								  echo '<button type="button" class="btn btn-default btn-xs agregarCarrito"  idProducto="'.$value["id"].'" imagen="'.$servidor.$value["portada"].'" titulo="'.$value["titulo"].'" precio="'.$value["precio"].'" data-toggle="tooltip" title="Agregar al carrito de compras">
+
+								  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+								  </button>';
 
 						  		echo '<a href="'.$value["ruta"].'" class="pixelProducto">
 

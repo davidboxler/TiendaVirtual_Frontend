@@ -64,6 +64,8 @@
 
 	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/perfil.css">
 
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/css/carrito-de-compras.css">
+
 	<!--=====================================
 	PLUGINS DE JAVASCRIPT
 	======================================-->
@@ -155,7 +157,7 @@ if(isset($_GET["ruta"])){
 
 		include "modulos/infoproducto.php";
 
-	}else if($rutas[0] == "buscador" || $rutas[0] == "verificar" || $rutas[0] == "salir" || $rutas[0] == "perfil"){
+	}else if($rutas[0] == "buscador" || $rutas[0] == "verificar" || $rutas[0] == "salir" || $rutas[0] == "perfil" || $rutas[0] == "carrito-de-compras"){
 
 		include "modulos/".$rutas[0].".php";
 
