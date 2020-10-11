@@ -227,7 +227,7 @@ HEADER
 				
 				</a>	
 
-				<p>TU CESTA <span class="cantidadCesta"></span> <br> USD $ <span class="sumaCesta"></span></p>	
+				<p>TU CESTA <span class="cantidadCesta"></span> <br> $ <span class="sumaCesta"></span></p>	
 
 			</div>
 
