@@ -155,10 +155,10 @@ HEADER
 			
 			<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="logotipo">
 				
-			    <a href="#">
+				<a href="<?php echo $url; ?>">
 						
-						<img src="http://localhost/Mibackend/<?php echo $social["logo"]; ?>" class="img-responsive">
-	
+					<img src="<?php echo $servidor.$social["logo"]; ?>" class="img-responsive">
+
 				</a>
 				
 			</div>

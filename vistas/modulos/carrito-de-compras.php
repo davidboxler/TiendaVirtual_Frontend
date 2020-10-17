@@ -126,14 +126,16 @@ TABLA CARRITO DE COMPRAS
 
 					if($_SESSION["validarSesion"] == "ok"){
 
-						echo '<a id="btnCheckout" href="#modalCheckout" data-toggle="modal" idUsuario="'.$_SESSION["id"].'"><button class="btn btn-default backColor btn-lg pull-right">REALIZAR PAGO</button></a>';
+						echo '<a id="btnCheckout" href="#modalCheckout" data-toggle="modal" 
+						idUsuario="'.$_SESSION["id"].'"><button class="btn btn-default backColor btn-lg pull-right">REALIZAR PAGO</button></a>';
 
 					}
 
 
 				}else{
 
-					echo '<a href="#modalIngreso" data-toggle="modal"><button class="btn btn-default backColor btn-lg pull-right">REALIZAR PAGO</button></a>';
+					echo '<a href="#modalIngreso" 
+					data-toggle="modal"><button class="btn btn-default backColor btn-lg pull-right">REALIZAR PAGO</button></a>';
 				}
 
 			?>	
@@ -145,4 +147,3 @@ TABLA CARRITO DE COMPRAS
 	</div>
 
 </div>    
-
