@@ -49,11 +49,15 @@ TOP
 
 					foreach ($jsonRedesSociales as $key => $value) {
 
+						if($value["activo"] != 0){
+
 						echo '<li>
 								<a href="'.$value["url"].'" target="_blank">
 									<i class="fa '.$value["red"].' redSocial '.$value["estilo"].'" aria-hidden="true"></i>
 								</a>
 							</li>';
+
+						}	
 					}
 
 					?>
