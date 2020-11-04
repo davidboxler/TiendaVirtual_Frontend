@@ -43,8 +43,8 @@ $tope = 4;
 if($titulosModulos[0] == "LO MÁS VENDIDO"){
 
 $ordenar = "ventas";
-$item = null;
-$valor = null;
+$item = "estado";
+$valor = 1;
 $modo = "DESC";
 
 $ventas = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor, $base, $tope, $modo);
@@ -54,8 +54,8 @@ $ventas = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor, $ba
 if($titulosModulos[1] == "LO MÁS VISTO"){
 
 $ordenar = "vistas";
-$item = null;
-$valor = null;
+$item = "estado";
+$valor = 1;
 $modo = "DESC";
 
 $vistas = ControladorProductos::ctrMostrarProductos($ordenar, $item, $valor, $base, $tope, $modo);
@@ -142,6 +142,8 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 				<ul class="grid'.$i.'">';
 
 				foreach ($modulos[$i] as $key => $value) {
+
+					if($value["estado"] != 0){
 					
 					echo '<li class="col-md-3 col-sm-6 col-xs-12">
 
@@ -232,6 +234,7 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 							</div>
 
 						</li>';
+					}	
 				}
 
 				echo '</ul>
@@ -239,6 +242,8 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 				<ul class="list'.$i.'" style="display:none">';
 
 				foreach ($modulos[$i] as $key => $value) {
+
+					if($value["estado"] != 0){
 
 					echo '<li class="col-xs-12">
 					  
@@ -333,6 +338,8 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 						<div class="col-xs-12"><hr></div>
 
 					</li>';
+
+					}
 
 				}
 

@@ -142,6 +142,8 @@ LISTAR PRODUCTOS
 
 			if(!$productos){
 
+				$estado = 0;
+
 				echo '<div class="col-xs-12 error404 text-center">
 
 						 <h1><small>¡Oops!</small></h1>
@@ -155,6 +157,8 @@ LISTAR PRODUCTOS
 				echo '<ul class="grid0">';
 
 					foreach ($productos as $key => $value) {
+
+						if($value["estado"] != 0){
 					
 					echo '<li class="col-md-3 col-sm-6 col-xs-12">
 
@@ -247,6 +251,21 @@ LISTAR PRODUCTOS
 							</div>
 
 						</li>';
+					}else{
+
+						$estado = 0;
+
+					}	
+				}
+
+				if($estado == 0){
+					echo '<div class="col-xs-12 error404 text-center">
+
+						 <h1><small>¡Oops!</small></h1>
+
+						 <h2>Aún no hay productos en esta sección</h2>
+
+					</div>';
 				}
 
 				echo '</ul>
@@ -254,6 +273,8 @@ LISTAR PRODUCTOS
 				<ul class="list0" style="display:none">';
 
 				foreach ($productos as $key => $value) {
+
+					if($value["estado"] != 0){
 
 					echo '<li class="col-xs-12">
 					  
@@ -347,6 +368,22 @@ LISTAR PRODUCTOS
 
 					</li>';
 
+					}else{
+
+						$estado = 0;
+
+					}
+
+				}
+
+				if($estado == 0){
+					echo '<div class="col-xs-12 error404 text-center">
+
+						 <h1><small>¡Oops!</small></h1>
+
+						 <h2>Aún no hay productos en esta sección</h2>
+
+					</div>';
 				}
 
 				echo '</ul>';
@@ -363,6 +400,8 @@ LISTAR PRODUCTOS
 			======================================-->
 			
 			<?php
+
+			   if($estado != 0){
 
 				if(count($listaProductos) != 0){
 
@@ -489,6 +528,8 @@ LISTAR PRODUCTOS
 					}
 
 				}
+
+			}
 
 			?>
 

@@ -195,7 +195,7 @@ HEADER
 				
 				<div class="input-group col-lg-8 col-md-8 col-sm-8 col-xs-12" id="buscador">
 					
-					<input type="search" name="buscar" class="form-control" placeholder="Buscar...">	
+					<input type="search" name="buscar" class="form-control input-lg" placeholder="Buscar...">	
 
 					<span class="input-group-btn">
 						
@@ -252,6 +252,8 @@ HEADER
 
 				foreach ($categorias as $key => $value) {
 
+					if($value["estado"] != 0){
+
 					echo '<div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
 							
 							<h4>
@@ -276,6 +278,8 @@ HEADER
 							echo '</ul>
 
 						</div>';
+
+							}	
 				}
 
 			?>	
@@ -361,7 +365,7 @@ VENTANA MODAL PARA EL REGISTRO
 						
 						</span>
 
-						<input type="email" class="form-control" id="regEmail" name="regEmail" placeholder="Correo Electrónico" required>
+						<input type="email" class="form-control input-lg" id="regEmail" name="regEmail" placeholder="Correo Electrónico" required>
 
 					</div>
 
@@ -377,7 +381,7 @@ VENTANA MODAL PARA EL REGISTRO
 						
 						</span>
 
-						<input type="password" class="form-control" id="regPassword" name="regPassword" placeholder="Contraseña" required>
+						<input type="password" class="form-control input-lg" id="regPassword" name="regPassword" placeholder="Contraseña" required>
 
 					</div>
 
@@ -491,7 +495,7 @@ VENTANA MODAL PARA EL INGRESO
 						
 						</span>
 
-						<input type="email" class="form-control" id="ingEmail" name="ingEmail" placeholder="Correo Electrónico" required>
+						<input type="email" class="form-control input-lg" id="ingEmail" name="ingEmail" placeholder="Correo Electrónico" required>
 
 					</div>
 
@@ -507,7 +511,7 @@ VENTANA MODAL PARA EL INGRESO
 						
 						</span>
 
-						<input type="password" class="form-control" id="ingPassword" name="ingPassword" placeholder="Contraseña" required>
+						<input type="password" class="form-control input-lg" id="ingPassword" name="ingPassword" placeholder="Contraseña" required>
 
 					</div>
 
@@ -579,7 +583,7 @@ VENTANA MODAL PARA OLVIDO DE CONTRASEÑA
 						
 						</span>
 					
-						<input type="email" class="form-control" id="passEmail" name="passEmail" placeholder="Correo Electrónico" required>
+						<input type="email" class="form-control input-lg" id="passEmail" name="passEmail" placeholder="Correo Electrónico" required>
 
 					</div>
 
