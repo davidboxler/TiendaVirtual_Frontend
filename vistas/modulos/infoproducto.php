@@ -808,6 +808,8 @@ ARTÏCULOS RELACIONADOS
 				echo '<ul class="grid0">';
 
 				foreach ($relacionados as $key => $value) {
+
+				if($value["estado"] != 0){	
 				
 				echo '<li class="col-md-3 col-sm-6 col-xs-12">
 
@@ -899,6 +901,8 @@ ARTÏCULOS RELACIONADOS
 
 					</li>';
 				}
+			
+			}	
 
 			echo '</ul>';
 

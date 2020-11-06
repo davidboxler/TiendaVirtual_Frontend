@@ -234,6 +234,7 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 							</div>
 
 						</li>';
+						
 					}	
 				}
 

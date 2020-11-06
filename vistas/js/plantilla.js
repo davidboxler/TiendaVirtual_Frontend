@@ -118,15 +118,56 @@ var url = window.location.href;
 
 var indice = url.split("/");
 
-var pagActual = indice[5];
-console.log("pagActual", pagActual);
+var pagActual =indice[5];
 
 if(isNaN(pagActual)){
 
-	$("#item1").addClass("active");
-
+   $("#item1").addClass("active");
+   
 }else{
-	
-	$("#item"+pagActual).addClass("active");	
+
+   $("#item"+pagActual).addClass("active");
+ 
+}
+
+
+/*=============================================
+OFERTAS
+=============================================*/
+$(".cerrarOfertas").click(function(){
+
+	$(this).parent().remove();
+
+})
+
+/*=============================================
+CONTADOR DE TIEMPO
+=============================================*/
+
+var finOferta = $(".countdown");
+var fechaFinOferta = [];
+
+for(var i = 0; i < finOferta.length; i++){
+
+	fechaFinOferta[i] = $(finOferta[i]).attr("finOferta");
+
+	$(finOferta[i]).dsCountDown({
+
+	endDate: new Date(fechaFinOferta[i]),
+
+	theme: 'flat', 
+
+	titleDays: 'Días', 
+
+	titleHours: 'Horas', 
+
+	titleMinutes: 'Minutos', 
+
+	titleSeconds: 'Segundos' 
+
+
+	});
+
+
 }
 

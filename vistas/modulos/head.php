@@ -271,9 +271,13 @@ HEADER
 							$subcategorias = ControladorProductos::ctrMostrarSubCategorias($item, $valor);
 							
 							foreach ($subcategorias as $key => $value) {
+
+								if($value["estado"] != 0){
 									
 									echo '<li><a href="'.$url.$value["ruta"].'" class="pixelSubCategorias">'.$value["subcategoria"].'</a></li>';
 								}	
+
+							}	
 								
 							echo '</ul>
 

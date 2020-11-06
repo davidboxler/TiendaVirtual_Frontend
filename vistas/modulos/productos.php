@@ -219,6 +219,8 @@ LISTAR PRODUCTOS
 				echo '<ul class="grid0">';
 
 					foreach ($productos as $key => $value) {
+
+						if($value["estado"] != 0){	
 					
 					echo '<li class="col-md-3 col-sm-6 col-xs-12">
 
@@ -309,6 +311,8 @@ LISTAR PRODUCTOS
 							</div>
 
 						</li>';
+
+					}	
 				}
 
 				echo '</ul>
@@ -316,6 +320,8 @@ LISTAR PRODUCTOS
 				<ul class="list0" style="display:none">';
 
 				foreach ($productos as $key => $value) {
+
+					if($value["estado"] != 0){
 
 					echo '<li class="col-xs-12">
 					  
@@ -410,6 +416,8 @@ LISTAR PRODUCTOS
 						<div class="col-xs-12"><hr></div>
 
 					</li>';
+
+					}
 
 				}
 

@@ -159,6 +159,8 @@ LISTAR PRODUCTOS
 					foreach ($productos as $key => $value) {
 
 						if($value["estado"] != 0){
+
+						$estado = 1;	
 					
 					echo '<li class="col-md-3 col-sm-6 col-xs-12">
 
@@ -259,6 +261,7 @@ LISTAR PRODUCTOS
 				}
 
 				if($estado == 0){
+
 					echo '<div class="col-xs-12 error404 text-center">
 
 						 <h1><small>¡Oops!</small></h1>
@@ -377,6 +380,7 @@ LISTAR PRODUCTOS
 				}
 
 				if($estado == 0){
+					
 					echo '<div class="col-xs-12 error404 text-center">
 
 						 <h1><small>¡Oops!</small></h1>
