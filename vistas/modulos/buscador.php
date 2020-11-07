@@ -186,7 +186,11 @@ LISTAR PRODUCTOS
 
 										<span style="color:rgba(0,0,0,0)">-</span>';
 
-										if($value["nuevo"] != 0){
+										$fecha = date('Y-m-d');
+										$fechaActual = strtotime('-30 day', strtotime($fecha));
+										$fechaNueva = date('Y-m-d', $fechaActual);
+
+										if($fechaNueva < $value["fecha"]){
 
 											echo '<span class="label label-warning fontSize">Nuevo</span> ';
 
@@ -305,9 +309,13 @@ LISTAR PRODUCTOS
 										
 										'.$value["titulo"].'<br>';
 
-										if($value["nuevo"] != 0){
+										$fecha = date('Y-m-d');
+										$fechaActual = strtotime('-30 day', strtotime($fecha));
+										$fechaNueva = date('Y-m-d', $fechaActual);
 
-											echo '<span class="label label-warning">Nuevo</span> ';
+										if($fechaNueva < $value["fecha"]){
+
+											echo '<span class="label label-warning fontSize">Nuevo</span> ';
 
 										}
 

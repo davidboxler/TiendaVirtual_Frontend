@@ -40,19 +40,16 @@
 
 		}
 
-		// ESTE FRAGMENTO DE CODIGO NO FUNCIONA 
-
 		$cabeceras = ControladorPlantilla::ctrTraerCabeceras($ruta);
 		
-		if (is_array($cabeceras) && $rutas[0] == $cabeceras["ruta"]) {
-
-
-
+		if (!$cabeceras["ruta"]) {
+			
 			$ruta = "inicio";
 
 			$cabeceras = ControladorPlantilla::ctrTraerCabeceras($ruta);
+			
 
-		}	
+		}
 
 	?>
 
@@ -60,7 +57,7 @@
 	Marcado HTML5
 	======================================-->
 
-	<meta name="title" content="<?php echo  $cabeceras['titulo']; ?>">
+	<meta name="title" content="<?php echo $cabeceras['titulo']; ?>">
 
 	<meta name="description" content="<?php echo  $cabeceras['descripcion']; ?>">
 
@@ -187,11 +184,11 @@ if(isset($_GET["ruta"])){
 
 	$rutaProductos = ControladorProductos::ctrMostrarInfoProducto($item, $valor);
 
-    if (is_array($rutaProductos) && $rutas[0] == $rutaProductos["ruta"] && $rutaProductos == 1) {
+    if (is_array($rutaProductos) && $rutas[0] == $rutaProductos["ruta"] && $rutaProductos["estado"] == 1) {
     $infoProducto = $rutas[0];
     }
 
-/*=============================================
+    /*=============================================
 	LISTA BLANCA DE URL'S AMIGABLES
 	=============================================*/
 

@@ -10,27 +10,17 @@ $ruta = "sin-categoria";
 
 $banner = ControladorProductos::ctrMostrarBanner($ruta);
 
-$titulo1 = json_decode($banner["titulo1"],true);
-$titulo2 = json_decode($banner["titulo2"],true);
-$titulo3 = json_decode($banner["titulo3"],true);
-
 if($banner != null){
 
-echo '<figure class="banner">
+	if($banner["estado"] != 0){
 
-		<img src="'.$servidor.$banner["img"].'" class="img-responsive" width="100%">	
+		echo '<figure class="banner">
 
-		<div class="textoBanner '.$banner["estilo"].'">
-			
-			<h1 style="color:'.$titulo1["color"].'">'.$titulo1["texto"].'</h1>
+				<img src="'.$servidor.$banner["img"].'" class="img-responsive" width="100%">	
 
-			<h2 style="color:'.$titulo2["color"].'"><strong>'.$titulo2["texto"].'</strong></h2>
+			  </figure>';
 
-			<h3 style="color:'.$titulo3["color"].'">'.$titulo3["texto"].'</h3>
-
-		</div>
-
-	</figure>';
+	}
 
 }
 
@@ -167,7 +157,11 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 
 										<span style="color:rgba(0,0,0,0)">-</span>';
 
-										if($value["nuevo"] != 0){
+										$fecha = date('Y-m-d');
+										$fechaActual = strtotime('-30 day', strtotime($fecha));
+										$fechaNueva = date('Y-m-d', $fechaActual);
+
+										if($fechaNueva < $value["fecha"]){
 
 											echo '<span class="label label-warning fontSize">Nuevo</span> ';
 
@@ -274,9 +268,13 @@ for($i = 0; $i < count($titulosModulos); $i ++){
 										
 										'.$value["titulo"].'<br>';
 
-										if($value["nuevo"] != 0){
+										$fecha = date('Y-m-d');
+										$fechaActual = strtotime('-30 day', strtotime($fecha));
+										$fechaNueva = date('Y-m-d', $fechaActual);
 
-											echo '<span class="label label-warning">Nuevo</span> ';
+										if($fechaNueva < $value["fecha"]){
+
+											echo '<span class="label label-warning fontSize">Nuevo</span> ';
 
 										}
 

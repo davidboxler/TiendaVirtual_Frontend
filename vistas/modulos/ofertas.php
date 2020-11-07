@@ -104,6 +104,8 @@ JUMBOTRON AVISO OFERTA
 
 			foreach ($respuesta as $key => $value) {
 
+				if($value["estado"] != 0){
+
 				if($value["oferta"] == 1){
 
 					if($value["finOferta"] > $fecha){
@@ -177,6 +179,8 @@ JUMBOTRON AVISO OFERTA
 					}
 
 				}
+
+			}
 				
 			}
 
@@ -189,6 +193,8 @@ JUMBOTRON AVISO OFERTA
 			foreach ($respuestaSubcategorias as $key => $value) {
 
 				if($value["oferta"] == 1 && $value["ofertadoPorCategoria"] == 0){
+
+				  if($value["estado"] != 0){
 
 					if($value["finOferta"] > $fecha){
 
@@ -261,6 +267,8 @@ JUMBOTRON AVISO OFERTA
 					}
 
 				}
+
+				}
 				
 			}
 
@@ -273,6 +281,8 @@ JUMBOTRON AVISO OFERTA
 			$respuestaProductos = ControladorProductos::ctrListarProductos($ordenar, $item, $valor);
 
 			foreach ($respuestaProductos as $key => $value) {
+
+				if($value["estado"] != 0){
 
 				if($value["oferta"] == 1 && $value["ofertadoPorCategoria"] == 0 && $value["ofertadoPorSubCategoria"] == 0){
 
@@ -347,6 +357,8 @@ JUMBOTRON AVISO OFERTA
 					}
 
 				}
+
+			}
 				
 			}
 

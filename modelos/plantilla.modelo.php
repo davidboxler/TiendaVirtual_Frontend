@@ -14,6 +14,8 @@ class ModeloPlantilla{
 
 		$stmt -> close();
 
+		$stmt = null;
+
 	}
 
 	/*=============================================
