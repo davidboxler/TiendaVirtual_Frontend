@@ -11,24 +11,17 @@ $ruta = $rutas[0];
 
 $banner = ControladorProductos::ctrMostrarBanner($ruta);
 
-date_default_timezone_set('America/Argentina/Buenos_Aires');
-
-$fecha = date('Y-m-d');
-$hora = date('H:i:s');
-
-$fechaActual = $fecha.' '.$hora;
-
 if($banner != null){
 
 	if($banner["estado"] != 0){
 
-		echo '<figure class="banner">
+			echo '<figure class="banner">
 
 				<img src="'.$servidor.$banner["img"].'" class="img-responsive" width="100%">';	
 
-				if($banner["ruta"] != "sin-categoria"){
+				  if($banner["ruta"] != "sin-categoria"){
 
-					/*============================================
+					/*=============================================
 					BANNER PARA CATEGORÍAS
 					=============================================*/
 
@@ -96,9 +89,9 @@ if($banner != null){
 							echo '</div>';
 
 						}
-
+			
 					}
-
+					
 					/*=============================================
 					BANNER PARA SUBCATEGORÍAS
 					=============================================*/
