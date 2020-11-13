@@ -619,7 +619,7 @@ INFOPRODUCTOS
 
 				      		if($usuario["foto"] == ""){
 
-				      			echo '<img class="img-circle pull-right" src="'.$servidor.'vistas/img/usuarios/default/Usuario.jpg" width="20%">';	
+				      			echo '<img class="img-circle pull-right" src="'.$servidor.'vistas/img/usuarios/defaultH.jpg" width="20%">';	
 
 				      		}else{
 

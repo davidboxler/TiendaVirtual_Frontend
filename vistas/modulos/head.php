@@ -94,7 +94,7 @@ TOP
 
 								echo '<li>
 
-									<img class="img-circle" src="'.$servidor.'vistas/img/usuarios/default/Usuario.jpg" width="10%">
+									<img class="img-circle" src="'.$servidor.'vistas/img/usuarios/defaultH.jpg" width="10%">
 
 								</li>';
 
