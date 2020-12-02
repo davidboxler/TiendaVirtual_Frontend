@@ -42,7 +42,7 @@
 
 		$cabeceras = ControladorPlantilla::ctrTraerCabeceras($ruta);
 		
-		if (!$cabeceras["ruta"]) {
+		if (is_array($cabeceras) != ["ruta"]) {
 			
 			$ruta = "inicio";
 
