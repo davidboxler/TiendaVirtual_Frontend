@@ -46,9 +46,9 @@ class ControladorUsuarios{
 
 					$mail->isMail();
 
-					$mail->setFrom('cursos@tutorialesatualcance.com', 'Tutoriales a tu Alcance');
+					$mail->setFrom('distribuidoraSEND@gmail.com', 'Distribuidora SEND');
 
-					$mail->addReplyTo('cursos@tutorialesatualcance.com', 'Tutoriales a tu Alcance');
+					$mail->addReplyTo('distribuidoraSEND@gmail.com', 'Distribuidora SEND');
 
 					$mail->Subject = "Por favor verifique su dirección de correo electrónico";
 
@@ -58,7 +58,7 @@ class ControladorUsuarios{
 						
 						<center>
 							
-							<img style="padding:20px; width:10%" src="http://tutorialesatualcance.com/tienda/logo.png">
+							<img style="padding:20px; width:10%" src="http://distribuidoraSEND.com/tienda/logo.png">
 
 						</center>
 
@@ -66,7 +66,7 @@ class ControladorUsuarios{
 						
 							<center>
 							
-							<img style="padding:20px; width:15%" src="http://tutorialesatualcance.com/tienda/icon-email.png">
+							<img style="padding:20px; width:15%" src="http://distribuidoraSEND.com/tienda/icon-email.png">
 
 							<h3 style="font-weight:100; color:#999">VERIFIQUE SU DIRECCIÓN DE CORREO ELECTRÓNICO</h3>
 
@@ -369,9 +369,9 @@ class ControladorUsuarios{
 
 						$mail->isMail();
 
-						$mail->setFrom('cursos@tutorialesatualcance.com', 'Tutoriales a tu Alcance');
+						$mail->setFrom('distribuidoraSEND@gmail.com', 'Distribuidora SEND');
 
-						$mail->addReplyTo('cursos@tutorialesatualcance.com', 'Tutoriales a tu Alcance');
+						$mail->addReplyTo('distribuidoraSEND@gmail.com', 'Distribuidora SEND');
 
 						$mail->Subject = "Solicitud de nueva contraseña";
 
@@ -381,7 +381,7 @@ class ControladorUsuarios{
 	
 								<center>
 									
-									<img style="padding:20px; width:10%" src="http://tutorialesatualcance.com/tienda/logo.png">
+									<img style="padding:20px; width:10%" src="http://distribuidoraSEND.com/tienda/logo.png">
 
 								</center>
 
@@ -389,7 +389,7 @@ class ControladorUsuarios{
 								
 									<center>
 									
-									<img style="padding:20px; width:15%" src="http://tutorialesatualcance.com/tienda/icon-pass.png">
+									<img style="padding:20px; width:15%" src="http://distribuidoraSEND.com/tienda/icon-pass.png">
 
 									<h3 style="font-weight:100; color:#999">SOLICITUD DE NUEVA CONTRASEÑA</h3>
 
@@ -978,9 +978,9 @@ class ControladorUsuarios{
 
 					$mail->isMail();
 
-					$mail->setFrom('correos@tiendavirtual.com', 'Tutoriales a tu Alcance');
+					$mail->setFrom('distribuidoraSEND@gmail.com', 'Distribuidora SEND');
 
-					$mail->addReplyTo('correos@tiendavirtual.com', 'Tutoriales a tu Alcance');
+					$mail->addReplyTo('distribuidoraSEND@gmail.com', 'Distribuidora SEND');
 
 					$mail->Subject = "Ha recibido una consulta";
 
@@ -990,13 +990,13 @@ class ControladorUsuarios{
 
 						<div style="width:100%; background:#eee; position:relative; font-family:sans-serif; padding-bottom:40px">
 
-						<center><img style="padding:20px; width:10%" src="http://www.tutorialesatualcance.com/tienda/logo.png"></center>
+						<center><img style="padding:20px; width:10%" src="http://www.distribuidoraSEND.com/tienda/logo.png"></center>
 
 						<div style="position:relative; margin:auto; width:600px; background:white; padding-bottom:20px">
 
 							<center>
 
-							<img style="padding-top:20px; width:15%" src="http://www.tutorialesatualcance.com/tienda/icon-email.png">
+							<img style="padding-top:20px; width:15%" src="http://www.distribuidoraSEND.com/tienda/icon-email.png">
 
 
 							<h3 style="font-weight:100; color:#999;">HA RECIBIDO UNA CONSULTA</h3>
